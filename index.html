@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Detector</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d1117, #1f2a36);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #e3f2fd;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-top: 30px;
+      color: #64b5f6;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    video, canvas {
+      border-radius: 12px;
+      border: 4px solid #64b5f6;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      margin: 30px auto;
+      display: block;
+    }
+
+    button {
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      background: linear-gradient(90deg, #64b5f6, #1976d2);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.4s, transform 0.2s;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #42a5f5, #0d47a1);
+      transform: translateY(-2px);
+    }
+
+    .result-box {
+      width: 60%;
+      margin: 30px auto;
+      background-color: rgba(33, 150, 243, 0.08);
+      border: 2px solid #64b5f6;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    #outputText, #movieList {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    #outputText {
+      color: #4fc3f7;
+      font-weight: bold;
+    }
+
+    #movieList {
+      color: #ba68c8;
+      font-style: italic;
+    }
+
+    .emoji {
+      font-size: 1.6rem;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 600px) {
+      video, canvas {
+        width: 90%;
+        height: auto;
+      }
+
+      .result-box {
+        width: 85%;
+        padding: 18px;
+      }
+    }
+    .hidden {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+  <h1>🎥 Emotion Detection with Webcam</h1>
+
+  <video id="video" width="400" height="300" autoplay></video>
+  <canvas id="canvas" width="400" height="300" style="display:none;"></canvas>
+
+  <div>
+    <button onclick="captureAndSend()">🔍 Detect Emotion</button>
+  </div>
+
+  <div class="result-box">
+    <p id="outputText">😊 Emotion: ...</p>
+    <p id="movieList">🎬 Movie Suggestions: ...</p>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Detector</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 30px;
+      color: #111;
+    }
+
+    video, canvas {
+      border-radius: 12px;
+      border: 4px solid #4CAF50;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 30px auto;
+      display: block;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #388E3C;
+    }
+
+    #outputText, #movieList {
+      font-size: 1.3rem;
+      margin-top: 20px;
+    }
+
+    #outputText {
+      color: #0D47A1;
+    }
+
+    #movieList {
+      color: #6A1B9A;
+      font-style: italic;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 5px;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <h1>🎥 Emotion Detection with Webcam</h1>
+
+  <video id="video" width="400" height="300" autoplay></video>
+  <canvas id="canvas" width="400" height="300" style="display:none;"></canvas>
+
+  <div>
+    <button onclick="captureAndSend()">🔍 Detect Emotion</button>
+    <p id="outputText">😊 Emotion: ...</p>
+    <p id="movieList">🎬 Movie Suggestions: ...</p>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> -->
